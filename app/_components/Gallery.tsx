@@ -3,18 +3,42 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80", alt: "Solar panels on rooftop" },
-  { src: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80", alt: "Commercial solar installation" },
-  { src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80", alt: "Solar farm" },
-  { src: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80", alt: "Rooftop solar panels" },
-  { src: "https://images.unsplash.com/photo-1548337138-e87d889cc369?w=600&q=80", alt: "Solar installation team" },
-  { src: "https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?w=600&q=80", alt: "Solar panels field" },
-  { src: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&q=80", alt: "Residential solar system" },
-  { src: "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=600&q=80", alt: "Solar energy installation" },
+type GalleryItem =
+  | { type: "image"; src: string; alt: string }
+  | { type: "video"; src: string };
+
+const galleryItems: GalleryItem[] = [
+  {
+    type: "image",
+    src: "/work-proof/Images/WhatsApp%20Image%202026-05-31%20at%2012.05.41.jpeg",
+    alt: "Solar panel rooftop installation",
+  },
+  {
+    type: "video",
+    src: "/work-proof/Videos/WhatsApp%20Video%202026-05-31%20at%2012.05.42.mp4",
+  },
+  {
+    type: "image",
+    src: "/work-proof/Images/WhatsApp%20Image%202026-05-31%20at%2012.05.42.jpeg",
+    alt: "Commercial rooftop solar panels",
+  },
+  {
+    type: "image",
+    src: "/work-proof/Images/WhatsApp%20Image%202026-05-31%20at%2012.05.42%20%281%29.jpeg",
+    alt: "Solar panel installation in progress",
+  },
+  {
+    type: "video",
+    src: "/work-proof/Videos/WhatsApp%20Video%202026-05-31%20at%2012.05.43%20%281%29.mp4",
+  },
+  {
+    type: "image",
+    src: "/work-proof/Images/WhatsApp%20Image%202026-05-31%20at%2012.05.43%20%283%29.jpeg",
+    alt: "Rooftop solar system setup",
+  },
 ];
 
-const allImages = [...galleryImages, ...galleryImages];
+const allItems = [...galleryItems, ...galleryItems];
 
 export default function Gallery() {
   return (
@@ -36,7 +60,7 @@ export default function Gallery() {
             Real Installations,{" "}
             <span className="text-gold-gradient">Real Results</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-base">
+          <p className="text-slate-600 dark:text-slate-400 max-w-xl mb-6 mx-auto text-base">
             A glimpse of the solar systems we have installed across homes,
             businesses, and agricultural properties.
           </p>
@@ -49,16 +73,29 @@ export default function Gallery() {
 
         <div className="overflow-hidden">
           <div className="gallery-track gap-4 flex">
-            {allImages.map((img, i) => (
+            {allItems.map((item, i) => (
               <div key={i} className="flex-shrink-0 w-72 h-48 rounded-2xl overflow-hidden relative glass-card">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                  sizes="288px"
-                />
-                <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20 hover:bg-transparent transition-colors duration-300" />
+                {item.type === "image" ? (
+                  <>
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes="288px"
+                    />
+                    <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20 hover:bg-transparent transition-colors duration-300" />
+                  </>
+                ) : (
+                  <video
+                    src={item.src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
             ))}
           </div>

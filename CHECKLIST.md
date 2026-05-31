@@ -3,10 +3,9 @@
 ## 1. Assets (Required)
 
 ### Logo
-- [ ] Provide logo file — **PNG or SVG**, transparent background preferred
-- [ ] Minimum size: 400×200px for quality rendering
-- [ ] Place in: `solaaris/public/logo.png` (or `.svg`)
-- [ ] Will replace the current SVG placeholder in Navbar and Footer
+- [x] Provide logo file — **PNG or SVG**, transparent background preferred
+- [x] Place in: `solaaris/public/logo.png`
+- [x] Replaced SVG placeholder in Navbar and Footer with real logo
 
 ### Favicon
 - [ ] Provide a square version of the logo icon (just the infinity/sun mark)
@@ -102,7 +101,7 @@ Once deployed on Vercel, follow these steps:
 
 | Item | Status |
 |---|---|
-| Logo file | ⏳ Pending |
+| Logo file | ✅ Done |
 | Favicon | ⏳ Pending |
 | OG image | ⏳ Pending |
 | Gallery photos (real) | ⏳ Pending |
