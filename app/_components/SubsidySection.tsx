@@ -21,12 +21,12 @@ export default function SubsidySection() {
   };
 
   return (
-    <section id="subsidy" className="py-20 md:py-28 bg-solar-navy-light relative overflow-hidden">
+    <section id="subsidy" className="py-14 md:py-24 bg-solar-navy-light relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(245,166,35,0.08),transparent)]" />
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -52,7 +52,7 @@ export default function SubsidySection() {
             </p>
 
             {/* Subsidy slabs */}
-            <div className="grid grid-cols-3 gap-3 mb-8">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
               {subsidySlabs.map((slab) => (
                 <div
                   key={slab.size}
@@ -63,7 +63,7 @@ export default function SubsidySection() {
                   }`}
                 >
                   <div
-                    className={`text-xl font-extrabold mb-1 ${
+                    className={`text-sm sm:text-xl font-extrabold mb-1 leading-tight ${
                       slab.highlight ? "text-solar-gold" : "text-white"
                     }`}
                   >

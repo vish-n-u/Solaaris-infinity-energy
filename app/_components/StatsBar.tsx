@@ -3,15 +3,15 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "50+", label: "Installations Completed" },
-  { value: "500kW+", label: "Total Capacity Installed" },
-  { value: "100+", label: "Happy Customers" },
-  { value: "3+", label: "Years of Experience" },
+  { value: "10+", label: "Installations Completed" },
+  { value: "50kW+", label: "Total Capacity Installed" },
+  { value: "10+", label: "Happy Customers" },
+  { value: "1+", label: "Years of Experience" },
 ];
 
 export default function StatsBar() {
   return (
-    <section className="py-10 bg-solar-navy-light border-y border-white/5">
+    <section className="py-8 bg-solar-navy-light border-y border-white/5">
       <div className="section-container">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden">
           {stats.map((stat, i) => (

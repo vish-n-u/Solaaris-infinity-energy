@@ -21,10 +21,10 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-solar-navy-light border-t border-white/5">
-      <div className="section-container py-14">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="section-container py-10 md:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Brand */}
-          <div className="col-span-2">
+          <div className="sm:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-9 h-9">
                 <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9">
@@ -55,22 +55,22 @@ export default function Footer() {
             {/* Contact */}
             <div className="flex flex-col gap-2 text-sm">
               <a
-                href="tel:8446888294"
-                className="text-slate-400 hover:text-solar-gold transition-colors"
-              >
-                📞 8446888294 (Bhardwaj)
-              </a>
-              <a
                 href="tel:7558410811"
                 className="text-slate-400 hover:text-solar-gold transition-colors"
               >
-                📞 7558410811 (Adarsha)
+                📞 7558410811 (Bhardwaj)
+              </a>
+              <a
+                href="tel:8446888294"
+                className="text-slate-400 hover:text-solar-gold transition-colors"
+              >
+                📞 8446888294 (Adarsha)
               </a>
             </div>
             {/* Socials */}
             <div className="flex gap-3 mt-5">
               <a
-                href="https://wa.me/918446888294"
+                href="https://wa.me/917558410811"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg glass-card flex items-center justify-center hover:border-solar-gold/30 transition-colors text-base"

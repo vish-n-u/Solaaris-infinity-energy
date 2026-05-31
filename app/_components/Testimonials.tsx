@@ -31,7 +31,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 md:py-28 bg-solar-navy-light">
+    <section className="py-14 md:py-24 bg-solar-navy-light">
       <div className="section-container">
         {/* Heading */}
         <motion.div
@@ -39,7 +39,7 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card-gold mb-4">
             <span className="text-xs font-semibold text-solar-gold tracking-widest uppercase">

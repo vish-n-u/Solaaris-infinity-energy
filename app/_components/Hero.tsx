@@ -35,8 +35,8 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#060F1E] to-transparent" />
       </div>
 
-      <div className="section-container relative z-10 pt-28 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="section-container relative z-10 pt-20 sm:pt-28 pb-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <div>
             {/* Badge */}
@@ -57,7 +57,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-6"
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-4 sm:mb-6"
             >
               Power Your Future
               <br />
@@ -69,7 +69,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-slate-400 leading-relaxed mb-8 max-w-lg"
+              className="text-sm sm:text-lg text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-lg"
             >
               From initial consultation to final installation — we make solar
               simple, affordable, and hassle-free for homes and businesses across
@@ -81,7 +81,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mb-12"
+              className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12"
             >
               <button
                 onClick={scrollToContact}
@@ -234,7 +234,7 @@ export default function Hero() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4">
                   {[
-                    { value: "50+", label: "Projects" },
+                    { value: "10+", label: "Projects" },
                     { value: "25yr", label: "Panel Life" },
                     { value: "₹78k", label: "Max Subsidy" },
                   ].map((stat) => (

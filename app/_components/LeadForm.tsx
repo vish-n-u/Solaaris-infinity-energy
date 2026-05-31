@@ -39,13 +39,13 @@ export default function LeadForm() {
         `Please get in touch with me.`
     );
 
-    window.open(`https://wa.me/918446888294?text=${message}`, "_blank");
+    window.open(`https://wa.me/9920439118?text=${message}`, "_blank");
   };
 
   const isValid = form.name && form.phone && form.city && form.bill && form.type;
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-solar-navy relative overflow-hidden">
+    <section id="contact" className="py-14 md:py-24 bg-solar-navy relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(245,166,35,0.07),transparent)]" />
 
@@ -105,28 +105,28 @@ export default function LeadForm() {
             </div>
 
             {/* Contact direct */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="tel:8446888294"
-                className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 hover:border-solar-gold/30 transition-colors group"
-              >
-                <span className="text-xl">📞</span>
-                <div>
-                  <div className="text-xs text-slate-500">Call Bhardwaj</div>
-                  <div className="font-bold text-white group-hover:text-solar-gold transition-colors">
-                    8446888294
-                  </div>
-                </div>
-              </a>
+            <div className="mt-8 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3">
               <a
                 href="tel:7558410811"
                 className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 hover:border-solar-gold/30 transition-colors group"
               >
                 <span className="text-xl">📞</span>
                 <div>
-                  <div className="text-xs text-slate-500">Call Adarsha</div>
+                  <div className="text-xs text-slate-500">Call Bhardwaj</div>
                   <div className="font-bold text-white group-hover:text-solar-gold transition-colors">
                     7558410811
+                  </div>
+                </div>
+              </a>
+              <a
+                href="tel:8446888294"
+                className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 hover:border-solar-gold/30 transition-colors group"
+              >
+                <span className="text-xl">📞</span>
+                <div>
+                  <div className="text-xs text-slate-500">Call Adarsha</div>
+                  <div className="font-bold text-white group-hover:text-solar-gold transition-colors">
+                    8446888294
                   </div>
                 </div>
               </a>

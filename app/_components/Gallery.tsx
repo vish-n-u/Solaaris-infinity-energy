@@ -43,7 +43,7 @@ const allImages = [...galleryImages, ...galleryImages];
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-solar-navy overflow-hidden">
+    <section id="gallery" className="py-14 md:py-24 bg-solar-navy overflow-hidden">
       <div className="section-container mb-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -43,7 +43,7 @@ export default function WhatsAppButton() {
 
           {/* Button */}
           <motion.a
-            href="https://wa.me/918446888294?text=Hello%20Solaaris!%20I%27d%20like%20to%20know%20more%20about%20your%20solar%20solutions."
+            href="https://wa.me/917558410811?text=Hello%20Solaaris!%20I%27d%20like%20to%20know%20more%20about%20your%20solar%20solutions."
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }}

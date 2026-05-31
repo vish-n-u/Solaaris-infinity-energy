@@ -89,10 +89,10 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:8446888294"
+              href="tel:7558410811"
               className="text-sm font-medium text-slate-300 hover:text-solar-gold transition-colors duration-200"
             >
-              8446888294
+              7558410811
             </a>
             <button
               onClick={() => handleNavClick("#contact")}
