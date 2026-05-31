@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = {
   Services: [
     { label: "Rooftop Installation", href: "#services" },
@@ -25,27 +27,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-14">
           {/* Brand */}
           <div className="sm:col-span-2">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9">
-                <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9">
-                  <circle cx="18" cy="18" r="17" stroke="#F5A623" strokeWidth="1.5" opacity="0.3" />
-                  <path
-                    d="M10 18C10 14.5 12.5 12 15 12C17.5 12 18 14 18 14C18 14 18.5 10 21 10C23.5 10 26 12.5 26 16C26 19.5 23.5 22 21 22C18.5 22 18 20 18 20C18 20 17.5 24 15 24C12.5 24 10 21.5 10 18Z"
-                    stroke="#F5A623"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  <circle cx="18" cy="6" r="2" fill="#F5A623" />
-                </svg>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-extrabold text-lg tracking-wider text-solar-navy dark:text-white">
-                  SOLAARIS
-                </span>
-                <span className="text-[10px] tracking-[0.2em] text-slate-400 font-medium">
-                  INFINITY ENERGY
-                </span>
+            <div className="mb-5">
+              <div className="bg-white rounded-xl px-3 py-2 inline-block">
+                <Image
+                  src="/logo.PNG"
+                  alt="Solaaris Infinity Energy"
+                  width={120}
+                  height={152}
+                  className="h-20 w-auto object-contain"
+                />
               </div>
             </div>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">

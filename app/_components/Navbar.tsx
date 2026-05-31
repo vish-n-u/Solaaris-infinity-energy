@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
@@ -42,27 +43,16 @@ export default function Navbar() {
       <div className="section-container">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
-            <div className="relative w-9 h-9">
-              <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9">
-                <circle cx="18" cy="18" r="17" stroke="#F5A623" strokeWidth="1.5" opacity="0.4" />
-                <path
-                  d="M10 18C10 14.5 12.5 12 15 12C17.5 12 18 14 18 14C18 14 18.5 10 21 10C23.5 10 26 12.5 26 16C26 19.5 23.5 22 21 22C18.5 22 18 20 18 20C18 20 17.5 24 15 24C12.5 24 10 21.5 10 18Z"
-                  stroke="#F5A623"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <circle cx="18" cy="6" r="2" fill="#F5A623" />
-              </svg>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-extrabold text-lg tracking-wider text-solar-navy group-hover:text-solar-gold-dark transition-colors duration-200 dark:text-white dark:group-hover:text-solar-gold">
-                SOLAARIS
-              </span>
-              <span className="text-[10px] tracking-[0.2em] text-slate-400 font-medium">
-                INFINITY ENERGY
-              </span>
+          <a href="#" className="flex items-center group">
+            <div className="bg-white rounded-xl px-2 py-1 transition-opacity duration-200 group-hover:opacity-85">
+              <Image
+                src="/logo.PNG"
+                alt="Solaaris Infinity Energy"
+                width={100}
+                height={126}
+                className="h-14 w-auto object-contain"
+                priority
+              />
             </div>
           </a>
 
