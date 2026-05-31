@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -34,24 +35,17 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#060F1E]/95 backdrop-blur-md shadow-lg shadow-black/20"
+          ? "bg-white/95 backdrop-blur-md shadow-sm shadow-slate-200/80 dark:bg-[#060F1E]/95 dark:shadow-black/20"
           : "bg-transparent"
       }`}
     >
       <div className="section-container">
-        <div className="flex items-center justify-between h-18 py-4">
+        <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="relative w-9 h-9">
               <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9">
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="17"
-                  stroke="#F5A623"
-                  strokeWidth="1.5"
-                  opacity="0.3"
-                />
+                <circle cx="18" cy="18" r="17" stroke="#F5A623" strokeWidth="1.5" opacity="0.4" />
                 <path
                   d="M10 18C10 14.5 12.5 12 15 12C17.5 12 18 14 18 14C18 14 18.5 10 21 10C23.5 10 26 12.5 26 16C26 19.5 23.5 22 21 22C18.5 22 18 20 18 20C18 20 17.5 24 15 24C12.5 24 10 21.5 10 18Z"
                   stroke="#F5A623"
@@ -63,7 +57,7 @@ export default function Navbar() {
               </svg>
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-extrabold text-lg tracking-wider text-white group-hover:text-solar-gold transition-colors duration-200">
+              <span className="font-extrabold text-lg tracking-wider text-solar-navy group-hover:text-solar-gold-dark transition-colors duration-200 dark:text-white dark:group-hover:text-solar-gold">
                 SOLAARIS
               </span>
               <span className="text-[10px] tracking-[0.2em] text-slate-400 font-medium">
@@ -78,22 +72,23 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-slate-300 hover:text-solar-gold transition-colors duration-200 relative group"
+                className="text-sm font-medium text-slate-600 hover:text-solar-gold-dark dark:text-slate-300 dark:hover:text-solar-gold transition-colors duration-200 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-solar-gold group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-solar-gold-dark dark:bg-solar-gold group-hover:w-full transition-all duration-300" />
               </button>
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* Right side */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:7558410811"
-              className="text-sm font-medium text-slate-300 hover:text-solar-gold transition-colors duration-200"
+              className="text-sm font-medium text-slate-600 hover:text-solar-gold-dark dark:text-slate-300 dark:hover:text-solar-gold transition-colors duration-200"
             >
               7558410811
             </a>
+            <ThemeToggle />
             <button
               onClick={() => handleNavClick("#contact")}
               className="px-5 py-2.5 bg-solar-gold text-[#060F1E] text-sm font-bold rounded-lg hover:bg-solar-gold-light transition-all duration-200 gold-glow hover:scale-105"
@@ -102,25 +97,28 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <motion.span
-              animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-white origin-center"
-            />
-            <motion.span
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-0.5 bg-white"
-            />
-            <motion.span
-              animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-white origin-center"
-            />
-          </button>
+          {/* Mobile right */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="flex flex-col gap-1.5 p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              <motion.span
+                animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-0.5 bg-slate-700 dark:bg-white origin-center"
+              />
+              <motion.span
+                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="block w-6 h-0.5 bg-slate-700 dark:bg-white"
+              />
+              <motion.span
+                animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-0.5 bg-slate-700 dark:bg-white origin-center"
+              />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -132,14 +130,14 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#060F1E]/98 backdrop-blur-md border-t border-white/5"
+            className="md:hidden bg-white/98 backdrop-blur-md border-t border-slate-200 dark:bg-[#060F1E]/98 dark:border-white/5"
           >
             <div className="section-container py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left px-4 py-3 text-slate-300 hover:text-solar-gold hover:bg-white/5 rounded-lg transition-colors duration-150 font-medium"
+                  className="text-left px-4 py-3 text-slate-600 hover:text-solar-gold-dark hover:bg-slate-50 dark:text-slate-300 dark:hover:text-solar-gold dark:hover:bg-white/5 rounded-lg transition-colors duration-150 font-medium"
                 >
                   {link.label}
                 </button>

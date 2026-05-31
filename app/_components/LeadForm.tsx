@@ -45,9 +45,8 @@ export default function LeadForm() {
   const isValid = form.name && form.phone && form.city && form.bill && form.type;
 
   return (
-    <section id="contact" className="py-14 md:py-24 bg-solar-navy relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(245,166,35,0.07),transparent)]" />
+    <section id="contact" className="py-14 md:py-24 bg-slate-50 dark:bg-solar-navy relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(212,137,30,0.05),transparent)] dark:bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(245,166,35,0.07),transparent)]" />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
@@ -59,16 +58,16 @@ export default function LeadForm() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card-gold mb-5">
-              <span className="text-xs font-semibold text-solar-gold tracking-widest uppercase">
+              <span className="text-xs font-semibold text-solar-gold-dark dark:text-solar-gold tracking-widest uppercase">
                 Free Consultation
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 leading-tight">
               Get Your Free
               <br />
               <span className="text-gold-gradient">Solar Quote Today</span>
             </h2>
-            <p className="text-slate-400 text-base leading-relaxed mb-8">
+            <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-8">
               Tell us about your property and energy needs. Our solar experts
               will get back to you within 24 hours with a customised savings
               estimate and system recommendation — completely free.
@@ -86,7 +85,7 @@ export default function LeadForm() {
                 <div key={item} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-solar-gold/15 border border-solar-gold/30 flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-3 h-3 text-solar-gold"
+                      className="w-3 h-3 text-solar-gold-dark dark:text-solar-gold"
                       fill="none"
                       viewBox="0 0 12 12"
                     >
@@ -99,7 +98,7 @@ export default function LeadForm() {
                       />
                     </svg>
                   </div>
-                  <span className="text-sm text-slate-300">{item}</span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300">{item}</span>
                 </div>
               ))}
             </div>
@@ -113,7 +112,7 @@ export default function LeadForm() {
                 <span className="text-xl">📞</span>
                 <div>
                   <div className="text-xs text-slate-500">Call Bhardwaj</div>
-                  <div className="font-bold text-white group-hover:text-solar-gold transition-colors">
+                  <div className="font-bold text-slate-900 dark:text-white group-hover:text-solar-gold-dark dark:group-hover:text-solar-gold transition-colors">
                     7558410811
                   </div>
                 </div>
@@ -125,7 +124,7 @@ export default function LeadForm() {
                 <span className="text-xl">📞</span>
                 <div>
                   <div className="text-xs text-slate-500">Call Adarsha</div>
-                  <div className="font-bold text-white group-hover:text-solar-gold transition-colors">
+                  <div className="font-bold text-slate-900 dark:text-white group-hover:text-solar-gold-dark dark:group-hover:text-solar-gold transition-colors">
                     8446888294
                   </div>
                 </div>
@@ -142,15 +141,15 @@ export default function LeadForm() {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-card rounded-2xl p-7 flex flex-col gap-5"
+              className="glass-card rounded-2xl p-6 sm:p-7 flex flex-col gap-5"
             >
-              <h3 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                 Request Free Solar Quote
               </h3>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     Full Name *
                   </label>
                   <input
@@ -159,12 +158,12 @@ export default function LeadForm() {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold/50 focus:bg-white/8 transition-all"
+                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
                     style={{ fontSize: "16px" }}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     Phone Number *
                   </label>
                   <input
@@ -175,7 +174,7 @@ export default function LeadForm() {
                     required
                     type="tel"
                     pattern="[0-9]{10}"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold/50 focus:bg-white/8 transition-all"
+                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
                     style={{ fontSize: "16px" }}
                   />
                 </div>
@@ -183,7 +182,7 @@ export default function LeadForm() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     City *
                   </label>
                   <input
@@ -192,12 +191,12 @@ export default function LeadForm() {
                     onChange={handleChange}
                     placeholder="Your city"
                     required
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold/50 focus:bg-white/8 transition-all"
+                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
                     style={{ fontSize: "16px" }}
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                  <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                     Monthly Bill (₹) *
                   </label>
                   <input
@@ -207,7 +206,7 @@ export default function LeadForm() {
                     placeholder="e.g. 3000"
                     required
                     type="number"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold/50 focus:bg-white/8 transition-all"
+                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
                     style={{ fontSize: "16px" }}
                   />
                 </div>
@@ -222,7 +221,7 @@ export default function LeadForm() {
                   value={form.type}
                   onChange={handleChange}
                   required
-                  className="w-full bg-solar-navy border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-solar-gold/50 transition-all appearance-none cursor-pointer"
+                  className="w-full bg-slate-100 dark:bg-solar-navy border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 transition-all appearance-none cursor-pointer"
                   style={{ fontSize: "16px" }}
                 >
                   <option value="" disabled>

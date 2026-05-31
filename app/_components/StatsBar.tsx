@@ -11,9 +11,9 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="py-8 bg-solar-navy-light border-y border-white/5">
+    <section className="py-8 bg-white dark:bg-solar-navy-light border-y border-slate-200 dark:border-white/5">
       <div className="section-container">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 dark:bg-white/5 rounded-2xl overflow-hidden">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -21,12 +21,12 @@ export default function StatsBar() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col items-center justify-center py-8 px-4 bg-solar-navy-light"
+              className="flex flex-col items-center justify-center py-8 px-4 bg-white dark:bg-solar-navy-light"
             >
-              <span className="text-3xl lg:text-4xl font-extrabold text-solar-gold">
+              <span className="text-3xl lg:text-4xl font-extrabold text-solar-gold-dark dark:text-solar-gold">
                 {stat.value}
               </span>
-              <span className="text-sm text-slate-400 mt-1 text-center font-medium">
+              <span className="text-sm text-slate-500 dark:text-slate-400 mt-1 text-center font-medium">
                 {stat.label}
               </span>
             </motion.div>

@@ -17,66 +17,59 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-solar-navy">
       {/* Background */}
-      <div className="absolute inset-0 bg-[#060F1E]">
-        {/* Radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(245,166,35,0.12),transparent)]" />
-        {/* Grid overlay */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(212,137,30,0.08),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(245,166,35,0.12),transparent)]" />
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#060F1E] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-50 dark:from-solar-navy to-transparent" />
       </div>
 
       <div className="section-container relative z-10 pt-20 sm:pt-28 pb-16">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left content */}
           <div>
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card-gold mb-6"
             >
-              <span className="w-2 h-2 rounded-full bg-solar-gold animate-pulse" />
-              <span className="text-sm font-medium text-solar-gold-light">
+              <span className="w-2 h-2 rounded-full bg-solar-gold-dark dark:bg-solar-gold animate-pulse" />
+              <span className="text-sm font-medium text-solar-gold-dark dark:text-solar-gold-light">
                 #1 Solar Partner in Maharashtra
               </span>
             </motion.div>
 
-            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-4 sm:mb-6"
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-4 sm:mb-6 text-slate-900 dark:text-white"
             >
               Power Your Future
               <br />
               <span className="text-gold-gradient">With Solar Energy</span>
             </motion.h1>
 
-            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm sm:text-lg text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-lg"
+              className="text-sm sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-lg"
             >
               From initial consultation to final installation — we make solar
               simple, affordable, and hassle-free for homes and businesses across
               Maharashtra.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,13 +84,12 @@ export default function Hero() {
               </button>
               <button
                 onClick={scrollToServices}
-                className="px-7 py-3.5 border border-white/20 text-white font-semibold rounded-xl hover:border-solar-gold hover:text-solar-gold transition-all duration-200 text-base"
+                className="px-7 py-3.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-semibold rounded-xl hover:border-solar-gold-dark dark:hover:border-solar-gold hover:text-solar-gold-dark dark:hover:text-solar-gold transition-all duration-200 text-base"
               >
                 Explore Services
               </button>
             </motion.div>
 
-            {/* Trust badges */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -110,7 +102,7 @@ export default function Hero() {
                   className="flex items-center gap-2 px-4 py-2 glass-card rounded-full"
                 >
                   <span>{badge.icon}</span>
-                  <span className="text-sm font-medium text-slate-300">
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                     {badge.label}
                   </span>
                 </div>
@@ -126,126 +118,44 @@ export default function Hero() {
             className="hidden lg:flex justify-center items-center"
           >
             <div className="relative w-full max-w-md">
-              {/* Main card */}
               <div className="glass-card rounded-3xl p-8 relative overflow-hidden">
-                {/* Background glow */}
                 <div className="absolute -top-16 -right-16 w-48 h-48 bg-solar-gold/10 rounded-full blur-3xl" />
                 <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-solar-gold/8 rounded-full blur-3xl" />
 
-                {/* Solar icon */}
                 <div className="relative z-10 flex justify-center mb-6">
                   <div className="w-24 h-24 rounded-2xl bg-solar-gold/10 border border-solar-gold/20 flex items-center justify-center">
-                    <svg
-                      viewBox="0 0 48 48"
-                      className="w-12 h-12 text-solar-gold"
-                      fill="none"
-                    >
-                      <circle
-                        cx="24"
-                        cy="24"
-                        r="8"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        fill="rgba(245,166,35,0.15)"
-                      />
-                      <line
-                        x1="24"
-                        y1="4"
-                        x2="24"
-                        y2="12"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="24"
-                        y1="36"
-                        x2="24"
-                        y2="44"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="4"
-                        y1="24"
-                        x2="12"
-                        y2="24"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="36"
-                        y1="24"
-                        x2="44"
-                        y2="24"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="8.69"
-                        y1="8.69"
-                        x2="14.34"
-                        y2="14.34"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="33.66"
-                        y1="33.66"
-                        x2="39.31"
-                        y2="39.31"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="39.31"
-                        y1="8.69"
-                        x2="33.66"
-                        y2="14.34"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <line
-                        x1="14.34"
-                        y1="33.66"
-                        x2="8.69"
-                        y2="39.31"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
+                    <svg viewBox="0 0 48 48" className="w-12 h-12 text-solar-gold-dark dark:text-solar-gold" fill="none">
+                      <circle cx="24" cy="24" r="8" stroke="currentColor" strokeWidth="2.5" fill="rgba(245,166,35,0.15)" />
+                      <line x1="24" y1="4" x2="24" y2="12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="24" y1="36" x2="24" y2="44" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="4" y1="24" x2="12" y2="24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="36" y1="24" x2="44" y2="24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="8.69" y1="8.69" x2="14.34" y2="14.34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="33.66" y1="33.66" x2="39.31" y2="39.31" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="39.31" y1="8.69" x2="33.66" y2="14.34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                      <line x1="14.34" y1="33.66" x2="8.69" y2="39.31" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                     </svg>
                   </div>
                 </div>
 
-                <h3 className="text-center text-xl font-bold text-white mb-2">
+                <h3 className="text-center text-xl font-bold text-slate-900 dark:text-white mb-2">
                   Smart Solar Investment
                 </h3>
-                <p className="text-center text-slate-400 text-sm mb-6">
+                <p className="text-center text-slate-500 dark:text-slate-400 text-sm mb-6">
                   Start saving from day one
                 </p>
 
-                {/* Stats */}
                 <div className="grid grid-cols-3 gap-4">
                   {[
                     { value: "10+", label: "Projects" },
                     { value: "25yr", label: "Panel Life" },
                     { value: "₹78k", label: "Max Subsidy" },
                   ].map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="text-center p-3 rounded-xl bg-white/5"
-                    >
-                      <div className="text-lg font-extrabold text-solar-gold">
+                    <div key={stat.label} className="text-center p-3 rounded-xl bg-slate-100 dark:bg-white/5">
+                      <div className="text-lg font-extrabold text-solar-gold-dark dark:text-solar-gold">
                         {stat.value}
                       </div>
-                      <div className="text-xs text-slate-400 mt-0.5">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                         {stat.label}
                       </div>
                     </div>
@@ -253,54 +163,38 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Floating badges */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-5 -left-6 glass-card-gold rounded-2xl px-4 py-2.5"
               >
-                <div className="text-xs text-solar-gold-light font-semibold">
-                  Bill Savings
-                </div>
-                <div className="text-xl font-extrabold text-solar-gold">
-                  90%
-                </div>
+                <div className="text-xs text-solar-gold-dark dark:text-solar-gold-light font-semibold">Bill Savings</div>
+                <div className="text-xl font-extrabold text-solar-gold-dark dark:text-solar-gold">90%</div>
               </motion.div>
 
               <motion.div
                 animate={{ y: [0, 8, 0] }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -bottom-4 -right-6 glass-card rounded-2xl px-4 py-2.5"
               >
-                <div className="text-xs text-slate-400 font-semibold">
-                  Payback Period
-                </div>
-                <div className="text-xl font-extrabold text-white">
-                  3-5 Yrs
-                </div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold">Payback Period</div>
+                <div className="text-xl font-extrabold text-slate-900 dark:text-white">3-5 Yrs</div>
               </motion.div>
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-slate-500 tracking-widest uppercase">
-            Scroll
-          </span>
+          <span className="text-xs text-slate-400 dark:text-slate-500 tracking-widest uppercase">Scroll</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-5 h-8 border border-white/20 rounded-full flex items-start justify-center pt-1.5"
+            className="w-5 h-8 border border-slate-300 dark:border-white/20 rounded-full flex items-start justify-center pt-1.5"
           >
             <div className="w-1 h-2 bg-solar-gold rounded-full" />
           </motion.div>

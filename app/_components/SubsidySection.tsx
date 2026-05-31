@@ -21,13 +21,11 @@ export default function SubsidySection() {
   };
 
   return (
-    <section id="subsidy" className="py-14 md:py-24 bg-solar-navy-light relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(245,166,35,0.08),transparent)]" />
+    <section id="subsidy" className="py-14 md:py-24 bg-white dark:bg-solar-navy-light relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(212,137,30,0.05),transparent)] dark:bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(245,166,35,0.08),transparent)]" />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
-          {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -35,47 +33,40 @@ export default function SubsidySection() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card-gold mb-5">
-              <span className="text-xs font-semibold text-solar-gold tracking-widest uppercase">
+              <span className="text-xs font-semibold text-solar-gold-dark dark:text-solar-gold tracking-widest uppercase">
                 Government Subsidy
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 leading-tight">
               Save Up to{" "}
               <span className="text-gold-gradient">₹78,000</span>
               <br />
               With PM Surya Ghar
             </h2>
-            <p className="text-slate-400 text-base leading-relaxed mb-8">
+            <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-8">
               The Government of India's PM Surya Ghar Muft Bijli Yojana offers
               substantial subsidies for rooftop solar installations. We guide you
               through every step to ensure you receive the maximum benefit.
             </p>
 
-            {/* Subsidy slabs */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-8">
               {subsidySlabs.map((slab) => (
                 <div
                   key={slab.size}
                   className={`rounded-xl p-4 text-center border transition-all ${
                     slab.highlight
-                      ? "glass-card-gold border-solar-gold/30"
-                      : "glass-card border-white/8"
+                      ? "glass-card-gold border-amber-300 dark:border-solar-gold/30"
+                      : "glass-card border-slate-200 dark:border-white/8"
                   }`}
                 >
-                  <div
-                    className={`text-sm sm:text-xl font-extrabold mb-1 leading-tight ${
-                      slab.highlight ? "text-solar-gold" : "text-white"
-                    }`}
-                  >
+                  <div className={`text-sm sm:text-xl font-extrabold mb-1 leading-tight ${
+                    slab.highlight ? "text-solar-gold-dark dark:text-solar-gold" : "text-slate-900 dark:text-white"
+                  }`}>
                     {slab.subsidy}
                   </div>
-                  <div className="text-xs text-slate-400 font-medium">
-                    {slab.size} System
-                  </div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">{slab.size} System</div>
                   {slab.highlight && (
-                    <div className="text-[10px] text-solar-gold-light mt-1 font-semibold">
-                      Maximum
-                    </div>
+                    <div className="text-[10px] text-solar-gold-dark dark:text-solar-gold-light mt-1 font-semibold">Maximum</div>
                   )}
                 </div>
               ))}
@@ -89,14 +80,13 @@ export default function SubsidySection() {
             </button>
           </motion.div>
 
-          {/* Right — Steps */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="text-lg font-bold text-white mb-6">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">
               How We Handle the Subsidy Process
             </h3>
             <div className="flex flex-col gap-5">
@@ -109,23 +99,20 @@ export default function SubsidySection() {
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
                   className="flex gap-4"
                 >
-                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-solar-gold/10 border border-solar-gold/20 flex items-center justify-center text-solar-gold font-extrabold text-sm">
+                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-solar-gold/10 border border-solar-gold/20 flex items-center justify-center text-solar-gold-dark dark:text-solar-gold font-extrabold text-sm">
                     {item.step}
                   </div>
                   <div>
-                    <h4 className="font-bold text-white mb-1">{item.title}</h4>
-                    <p className="text-sm text-slate-400 leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <h4 className="font-bold text-slate-900 dark:text-white mb-1">{item.title}</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Disclaimer */}
             <div className="mt-6 p-4 glass-card rounded-xl">
-              <p className="text-xs text-slate-500 leading-relaxed">
-                <span className="text-slate-400 font-medium">Note:</span> Subsidy
+              <p className="text-xs text-slate-500 dark:text-slate-500 leading-relaxed">
+                <span className="text-slate-700 dark:text-slate-400 font-medium">Note:</span> Subsidy
                 amounts are subject to government guidelines and DISCOM approval.
                 Solaaris Infinity Energy assists with documentation and filing —
                 subsidy is disbursed directly by the government.
