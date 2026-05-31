@@ -104,14 +104,14 @@ export default function LeadForm() {
             </div>
 
             {/* Contact direct */}
-            <div className="mt-8 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3">
+            <div className="mt-8 flex flex-col gap-3">
               <a
                 href="tel:7558410811"
                 className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 hover:border-solar-gold/30 transition-colors group"
               >
                 <span className="text-xl">📞</span>
                 <div>
-                  <div className="text-xs text-slate-500">Call Bhardwaj</div>
+                  <div className="text-xs text-slate-500">Call Bhardwaj Tandel</div>
                   <div className="font-bold text-slate-900 dark:text-white group-hover:text-solar-gold-dark dark:group-hover:text-solar-gold transition-colors">
                     7558410811
                   </div>
@@ -123,9 +123,21 @@ export default function LeadForm() {
               >
                 <span className="text-xl">📞</span>
                 <div>
-                  <div className="text-xs text-slate-500">Call Adarsha</div>
+                  <div className="text-xs text-slate-500">Call Adarsha Tandel</div>
                   <div className="font-bold text-slate-900 dark:text-white group-hover:text-solar-gold-dark dark:group-hover:text-solar-gold transition-colors">
                     8446888294
+                  </div>
+                </div>
+              </a>
+              <a
+                href="mailto:info.solaarisinfinityenergy@gmail.com"
+                className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 hover:border-solar-gold/30 transition-colors group"
+              >
+                <span className="text-xl">✉️</span>
+                <div>
+                  <div className="text-xs text-slate-500">Email Us</div>
+                  <div className="font-bold text-slate-900 dark:text-white group-hover:text-solar-gold-dark dark:group-hover:text-solar-gold transition-colors text-sm">
+                    info.solaarisinfinityenergy@gmail.com
                   </div>
                 </div>
               </a>

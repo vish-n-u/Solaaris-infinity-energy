@@ -72,12 +72,6 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="tel:7558410811"
-              className="text-sm font-medium text-slate-600 hover:text-solar-gold-dark dark:text-slate-300 dark:hover:text-solar-gold transition-colors duration-200"
-            >
-              7558410811
-            </a>
             <ThemeToggle />
             <button
               onClick={() => handleNavClick("#contact")}

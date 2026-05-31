@@ -48,13 +48,19 @@ export default function Footer() {
                 href="tel:7558410811"
                 className="text-slate-500 hover:text-solar-gold-dark dark:text-slate-400 dark:hover:text-solar-gold transition-colors"
               >
-                📞 7558410811 (Bhardwaj)
+                📞 7558410811 (Bhardwaj Tandel)
               </a>
               <a
                 href="tel:8446888294"
                 className="text-slate-500 hover:text-solar-gold-dark dark:text-slate-400 dark:hover:text-solar-gold transition-colors"
               >
-                📞 8446888294 (Adarsha)
+                📞 8446888294 (Adarsha Tandel)
+              </a>
+              <a
+                href="mailto:info.solaarisinfinityenergy@gmail.com"
+                className="text-slate-500 hover:text-solar-gold-dark dark:text-slate-400 dark:hover:text-solar-gold transition-colors"
+              >
+                ✉️ info.solaarisinfinityenergy@gmail.com
               </a>
             </div>
            
