@@ -30,7 +30,7 @@ export default function Footer() {
             <div className="mb-5">
               <div className="bg-white rounded-xl px-3 py-2 inline-block">
                 <Image
-                  src="/logo.PNG"
+                  src="/logo.png"
                   alt="Solaaris Infinity Energy"
                   width={120}
                   height={152}

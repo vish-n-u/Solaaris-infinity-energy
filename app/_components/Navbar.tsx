@@ -46,7 +46,7 @@ export default function Navbar() {
           <a href="#" className="flex items-center group">
             <div className="bg-white rounded-xl px-2 py-1 transition-opacity duration-200 group-hover:opacity-85">
               <Image
-                src="/logo.PNG"
+                src="/logo.png"
                 alt="Solaaris Infinity Energy"
                 width={100}
                 height={126}
