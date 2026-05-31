@@ -17,20 +17,19 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-solar-navy">
-      {/* Video background */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-50 dark:bg-solar-navy">
+      {/* Background */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/work-proof/Videos/WhatsApp%20Video%202026-05-31%20at%2012.05.42.mp4"
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(212,137,30,0.08),transparent)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(245,166,35,0.12),transparent)]" />
+        <div
+          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
         />
-        <div className="absolute inset-0 bg-[#060F1E]/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(245,166,35,0.15),transparent)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#060F1E] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-50 dark:from-solar-navy to-transparent" />
       </div>
 
       <div className="section-container relative z-10 pt-20 sm:pt-28 pb-16">
@@ -53,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-4 sm:mb-6 text-white"
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight mb-4 sm:mb-6 text-slate-900 dark:text-white"
             >
               Power Your Future
               <br />
@@ -64,7 +63,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm sm:text-lg text-slate-300 leading-relaxed mb-6 sm:mb-8 max-w-lg"
+              className="text-sm sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-lg"
             >
               From initial consultation to final installation — we make solar
               simple, affordable, and hassle-free for homes and businesses across
@@ -85,7 +84,7 @@ export default function Hero() {
               </button>
               <button
                 onClick={scrollToServices}
-                className="px-7 py-3.5 border border-white/25 text-white font-semibold rounded-xl hover:border-solar-gold hover:text-solar-gold transition-all duration-200 text-base"
+                className="px-7 py-3.5 border border-slate-300 dark:border-white/20 text-slate-700 dark:text-white font-semibold rounded-xl hover:border-solar-gold-dark dark:hover:border-solar-gold hover:text-solar-gold-dark dark:hover:text-solar-gold transition-all duration-200 text-base"
               >
                 Explore Services
               </button>
@@ -103,7 +102,7 @@ export default function Hero() {
                   className="flex items-center gap-2 px-4 py-2 glass-card rounded-full"
                 >
                   <span>{badge.icon}</span>
-                  <span className="text-sm font-medium text-slate-200">
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
                     {badge.label}
                   </span>
                 </div>
