@@ -25,8 +25,10 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 300);
   };
 
   return (
@@ -128,7 +130,7 @@ export default function Navbar() {
               ))}
               <button
                 onClick={() => handleNavClick("#contact")}
-                className="mt-2 mx-4 py-3 bg-solar-gold text-[#060F1E] font-bold rounded-lg hover:bg-solar-gold-light transition-colors"
+                className="mt-2 mx-4 mb-3 py-3 bg-solar-gold text-[#060F1E] font-bold rounded-lg hover:bg-solar-gold-light transition-colors"
               >
                 Get Free Quote
               </button>

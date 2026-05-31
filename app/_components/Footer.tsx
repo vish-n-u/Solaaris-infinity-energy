@@ -15,7 +15,7 @@ const footerLinks = {
   Company: [
     { label: "Why Choose Us", href: "#why-us" },
     { label: "Our Projects", href: "#gallery" },
-    { label: "Testimonials", href: "#" },
+    { label: "Testimonials", href: "#testimonials" },
     { label: "Contact Us", href: "#contact" },
   ],
 };

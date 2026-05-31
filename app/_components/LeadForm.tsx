@@ -18,15 +18,32 @@ export default function LeadForm() {
     bill: "",
     type: "",
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = () => {
+    const e: Record<string, string> = {};
+    if (!form.name.trim() || form.name.trim().length < 2) e.name = "Enter your full name";
+    if (!/^[0-9]{10}$/.test(form.phone)) e.phone = "Enter a valid 10-digit mobile number";
+    if (!form.city.trim()) e.city = "Enter your city";
+    if (!form.bill || Number(form.bill) <= 0) e.bill = "Enter a valid monthly bill amount";
+    if (!form.type) e.type = "Please select a property type";
+    return e;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     const { name, phone, city, bill, type } = form;
 
     const message = encodeURIComponent(
@@ -49,7 +66,7 @@ export default function LeadForm() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(212,137,30,0.05),transparent)] dark:bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(245,166,35,0.07),transparent)]" />
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start text-left">
           {/* Left — Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -169,10 +186,10 @@ export default function LeadForm() {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    required
-                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
+                    className={`w-full bg-slate-100 dark:bg-white/5 border rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:bg-white dark:focus:bg-white/8 transition-all ${errors.name ? "border-red-400 dark:border-red-500" : "border-slate-200 dark:border-white/10 focus:border-solar-gold-dark dark:focus:border-solar-gold/50"}`}
                     style={{ fontSize: "16px" }}
                   />
+                  {errors.name && <p className="text-xs text-red-500 mt-0.5">{errors.name}</p>}
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
@@ -183,12 +200,12 @@ export default function LeadForm() {
                     value={form.phone}
                     onChange={handleChange}
                     placeholder="10-digit number"
-                    required
                     type="tel"
-                    pattern="[0-9]{10}"
-                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
+                    maxLength={10}
+                    className={`w-full bg-slate-100 dark:bg-white/5 border rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:bg-white dark:focus:bg-white/8 transition-all ${errors.phone ? "border-red-400 dark:border-red-500" : "border-slate-200 dark:border-white/10 focus:border-solar-gold-dark dark:focus:border-solar-gold/50"}`}
                     style={{ fontSize: "16px" }}
                   />
+                  {errors.phone && <p className="text-xs text-red-500 mt-0.5">{errors.phone}</p>}
                 </div>
               </div>
 
@@ -202,10 +219,10 @@ export default function LeadForm() {
                     value={form.city}
                     onChange={handleChange}
                     placeholder="Your city"
-                    required
-                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
+                    className={`w-full bg-slate-100 dark:bg-white/5 border rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:bg-white dark:focus:bg-white/8 transition-all ${errors.city ? "border-red-400 dark:border-red-500" : "border-slate-200 dark:border-white/10 focus:border-solar-gold-dark dark:focus:border-solar-gold/50"}`}
                     style={{ fontSize: "16px" }}
                   />
+                  {errors.city && <p className="text-xs text-red-500 mt-0.5">{errors.city}</p>}
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
@@ -216,11 +233,12 @@ export default function LeadForm() {
                     value={form.bill}
                     onChange={handleChange}
                     placeholder="e.g. 3000"
-                    required
                     type="number"
-                    className="w-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 focus:bg-white dark:focus:bg-white/8 transition-all"
+                    min="1"
+                    className={`w-full bg-slate-100 dark:bg-white/5 border rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:bg-white dark:focus:bg-white/8 transition-all ${errors.bill ? "border-red-400 dark:border-red-500" : "border-slate-200 dark:border-white/10 focus:border-solar-gold-dark dark:focus:border-solar-gold/50"}`}
                     style={{ fontSize: "16px" }}
                   />
+                  {errors.bill && <p className="text-xs text-red-500 mt-0.5">{errors.bill}</p>}
                 </div>
               </div>
 
@@ -228,23 +246,32 @@ export default function LeadForm() {
                 <label className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
                   Property Type *
                 </label>
-                <select
-                  name="type"
-                  value={form.type}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-slate-100 dark:bg-solar-navy border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm focus:outline-none focus:border-solar-gold-dark dark:focus:border-solar-gold/50 transition-all appearance-none cursor-pointer"
-                  style={{ fontSize: "16px" }}
-                >
-                  <option value="" disabled>
-                    Select property type
-                  </option>
-                  {propertyTypes.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
+                <div className="relative">
+                  <select
+                    name="type"
+                    value={form.type}
+                    onChange={handleChange}
+                    className={`w-full bg-slate-100 dark:bg-solar-navy border rounded-xl px-4 py-3 pr-10 text-slate-900 dark:text-white text-sm focus:outline-none transition-all appearance-none cursor-pointer ${errors.type ? "border-red-400 dark:border-red-500" : "border-slate-200 dark:border-white/10 focus:border-solar-gold-dark dark:focus:border-solar-gold/50"}`}
+                    style={{ fontSize: "16px" }}
+                  >
+                    <option value="" disabled>
+                      Select property type
                     </option>
-                  ))}
-                </select>
+                    {propertyTypes.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
+                  </select>
+                  <svg
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                {errors.type && <p className="text-xs text-red-500 mt-0.5">{errors.type}</p>}
               </div>
 
               <button
