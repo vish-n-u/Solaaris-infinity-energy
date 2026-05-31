@@ -57,7 +57,9 @@ export default function Footer() {
                 📞 8446888294 (Adarsha Tandel)
               </a>
               <a
-                href="mailto:info.solaarisinfinityenergy@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&to=info.solaarisinfinityenergy@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-slate-500 hover:text-solar-gold-dark dark:text-slate-400 dark:hover:text-solar-gold transition-colors"
               >
                 ✉️ info.solaarisinfinityenergy@gmail.com
@@ -90,7 +92,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-slate-200 dark:border-white/5">
+      <div className="border-t border-slate-200 dark:border-white/5 mt-2 pt-2">
         <div className="section-container py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-400 dark:text-slate-600">
             &copy; {new Date().getFullYear()} Solaaris Infinity Energy. All rights reserved.

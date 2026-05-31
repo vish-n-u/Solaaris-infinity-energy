@@ -147,7 +147,9 @@ export default function LeadForm() {
                 </div>
               </a>
               <a
-                href="mailto:info.solaarisinfinityenergy@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&to=info.solaarisinfinityenergy@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 glass-card rounded-xl px-5 py-3.5 hover:border-solar-gold/30 transition-colors group"
               >
                 <span className="text-xl">✉️</span>
