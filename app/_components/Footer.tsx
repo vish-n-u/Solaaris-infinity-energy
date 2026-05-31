@@ -67,25 +67,7 @@ export default function Footer() {
                 📞 8446888294 (Adarsha)
               </a>
             </div>
-            {/* Socials */}
-            <div className="flex gap-3 mt-6">
-              <a
-                href="https://wa.me/917558410811"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center hover:border-solar-gold/30 transition-colors text-base"
-                aria-label="WhatsApp"
-              >
-                💬
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg glass-card flex items-center justify-center hover:border-solar-gold/30 transition-colors text-base"
-                aria-label="Instagram"
-              >
-                📸
-              </a>
-            </div>
+           
           </div>
 
           {/* Links */}
