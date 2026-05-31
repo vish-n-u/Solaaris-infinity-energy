@@ -59,7 +59,7 @@ export default function LeadForm() {
     window.open(`https://wa.me/9920439118?text=${message}`, "_blank");
   };
 
-  const isValid = form.name && form.phone && form.city && form.bill && form.type;
+  const isValid = form.name && /^[0-9]{10}$/.test(form.phone) && form.city && form.bill && form.type;
 
   return (
     <section id="contact" className="py-14 md:py-24 bg-slate-50 dark:bg-solar-navy relative overflow-hidden">
@@ -212,13 +212,13 @@ export default function LeadForm() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
-                    City *
+                    City / Town *
                   </label>
                   <input
                     name="city"
                     value={form.city}
                     onChange={handleChange}
-                    placeholder="Your city"
+                    placeholder="Your city or town"
                     className={`w-full bg-slate-100 dark:bg-white/5 border rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:bg-white dark:focus:bg-white/8 transition-all ${errors.city ? "border-red-400 dark:border-red-500" : "border-slate-200 dark:border-white/10 focus:border-solar-gold-dark dark:focus:border-solar-gold/50"}`}
                     style={{ fontSize: "16px" }}
                   />
