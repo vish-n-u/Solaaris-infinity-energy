@@ -1,6 +1,7 @@
 import Navbar from "./_components/Navbar";
 import Hero from "./_components/Hero";
 import StatsBar from "./_components/StatsBar";
+import AboutUs from "./_components/AboutUs";
 import Services from "./_components/Services";
 import WhyChooseUs from "./_components/WhyChooseUs";
 import SystemTypes from "./_components/SystemTypes";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <StatsBar />
+        {/* <AboutUs /> */}
         <Services />
         <WhyChooseUs />
         <SystemTypes />
