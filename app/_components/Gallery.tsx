@@ -45,7 +45,32 @@ export default function Gallery() {
         </motion.div>
       </div>
 
-      <div className="relative">
+      {/* Mobile: touch-swipeable */}
+      <div className="md:hidden overflow-x-auto px-4 pb-2" style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
+        <div className="flex gap-4" style={{ width: "max-content" }}>
+          {galleryItems.map((item, i) => (
+            <div key={i} className="flex-shrink-0 w-[78vw] h-52 rounded-2xl overflow-hidden relative glass-card" style={{ scrollSnapAlign: "start" }}>
+              {item.type === "image" ? (
+                <>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                    sizes="78vw"
+                  />
+                  <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20" />
+                </>
+              ) : (
+                <video src={item.src} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: auto-scroll animation */}
+      <div className="relative hidden md:block">
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50 dark:from-solar-navy to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 dark:from-solar-navy to-transparent z-10" />
 
@@ -65,14 +90,7 @@ export default function Gallery() {
                     <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20 hover:bg-transparent transition-colors duration-300" />
                   </>
                 ) : (
-                  <video
-                    src={item.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
+                  <video src={item.src} autoPlay muted loop playsInline className="w-full h-full object-cover" />
                 )}
               </div>
             ))}
