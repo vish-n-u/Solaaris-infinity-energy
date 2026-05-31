@@ -28,12 +28,12 @@ export default function WhatsAppButton() {
         >
           {/* Tooltip */}
           <AnimatePresence>
-            {tooltip && (
+            {false && (
               <motion.div
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 10 }}
-                className="bg-white text-[#060F1E] text-xs font-semibold px-3 py-2 rounded-xl shadow-xl max-w-[160px] text-right leading-tight"
+                className="bg-white text-[#060F1E] text-xs font-semibold px-3 py-2 rounded-xl shadow-xl max-w-[160px]  leading-tight"
               >
                 Chat with us on WhatsApp!
                 <div className="absolute right-3 -bottom-1.5 w-3 h-3 bg-white rotate-45 rounded-sm" />
