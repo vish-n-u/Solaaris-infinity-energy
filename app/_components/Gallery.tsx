@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -19,6 +20,51 @@ const galleryItems: GalleryItem[] = [
 const allItems = [...galleryItems, ...galleryItems];
 
 export default function Gallery() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>();
+  const isTouching = useRef(false);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    const tick = () => {
+      if (!isTouching.current) {
+        el.scrollLeft += 0.5;
+      }
+      if (el.scrollLeft >= el.scrollWidth / 2) {
+        el.scrollLeft -= el.scrollWidth / 2;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+
+    const onTouchStart = () => {
+      isTouching.current = true;
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    };
+
+    const onTouchEnd = () => {
+      resumeTimer.current = setTimeout(() => {
+        isTouching.current = false;
+      }, 800);
+    };
+
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
+    el.addEventListener("touchcancel", onTouchEnd, { passive: true });
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);
+      el.removeEventListener("touchcancel", onTouchEnd);
+    };
+  }, []);
+
   return (
     <section id="gallery" className="py-14 md:py-24 bg-slate-50 dark:bg-solar-navy overflow-hidden">
       <div className="section-container mb-10">
@@ -45,56 +91,33 @@ export default function Gallery() {
         </motion.div>
       </div>
 
-      {/* Mobile: touch-swipeable */}
-      <div className="md:hidden overflow-x-auto px-4 pb-2" style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}>
-        <div className="flex gap-4" style={{ width: "max-content" }}>
-          {galleryItems.map((item, i) => (
-            <div key={i} className="flex-shrink-0 w-[78vw] h-52 rounded-2xl overflow-hidden relative glass-card" style={{ scrollSnapAlign: "start" }}>
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-slate-50 dark:from-solar-navy to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-slate-50 dark:from-solar-navy to-transparent z-10 pointer-events-none" />
+
+        <div
+          ref={trackRef}
+          className="flex gap-4 overflow-x-auto px-4"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {allItems.map((item, i) => (
+            <div key={i} className="flex-shrink-0 w-[78vw] sm:w-72 h-48 sm:h-48 rounded-2xl overflow-hidden relative glass-card">
               {item.type === "image" ? (
                 <>
                   <Image
                     src={item.src}
                     alt={item.alt}
                     fill
-                    className="object-cover"
-                    sizes="78vw"
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 640px) 78vw, 288px"
                   />
-                  <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20" />
+                  <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20 hover:bg-transparent transition-colors duration-300" />
                 </>
               ) : (
                 <video src={item.src} autoPlay muted loop playsInline className="w-full h-full object-cover" />
               )}
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Desktop: auto-scroll animation */}
-      <div className="relative hidden md:block">
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50 dark:from-solar-navy to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 dark:from-solar-navy to-transparent z-10" />
-
-        <div className="overflow-hidden">
-          <div className="gallery-track gap-4 flex">
-            {allItems.map((item, i) => (
-              <div key={i} className="flex-shrink-0 w-72 h-48 rounded-2xl overflow-hidden relative glass-card">
-                {item.type === "image" ? (
-                  <>
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      sizes="288px"
-                    />
-                    <div className="absolute inset-0 bg-slate-900/10 dark:bg-solar-navy/20 hover:bg-transparent transition-colors duration-300" />
-                  </>
-                ) : (
-                  <video src={item.src} autoPlay muted loop playsInline className="w-full h-full object-cover" />
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
