@@ -21,9 +21,9 @@ const allItems = [...galleryItems, ...galleryItems];
 
 export default function Gallery() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | null>(null);
   const isTouching = useRef(false);
-  const resumeTimer = useRef<ReturnType<typeof setTimeout>>();
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const el = trackRef.current;
@@ -57,8 +57,8 @@ export default function Gallery() {
     el.addEventListener("touchcancel", onTouchEnd, { passive: true });
 
     return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      if (resumeTimer.current !== null) clearTimeout(resumeTimer.current);
       el.removeEventListener("touchstart", onTouchStart);
       el.removeEventListener("touchend", onTouchEnd);
       el.removeEventListener("touchcancel", onTouchEnd);
