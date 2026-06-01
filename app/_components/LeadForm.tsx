@@ -56,7 +56,7 @@ export default function LeadForm() {
         `Please get in touch with me.`
     );
 
-    window.open(`https://wa.me/9920439118?text=${message}`, "_blank");
+    window.open(`https://wa.me/7558410811?text=${message}`, "_blank");
   };
 
   const isValid = form.name && /^[0-9]{10}$/.test(form.phone) && form.city && form.bill && form.type;

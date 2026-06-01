@@ -19,7 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <StatsBar />
-        {/* <AboutUs /> */}
+        <AboutUs />
         <Services />
         <WhyChooseUs />
         <SystemTypes />

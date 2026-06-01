@@ -1,18 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const founders = [
   {
     name: "Bhardwaj Tandel",
-    role: "Founder",
+    role: "Founder & Director",
     initial: "B",
+    image: "/Bharadwaj.jpg",
     bio: "Driving the vision behind Solaaris, Bhardwaj brings deep expertise in solar energy systems and a passion for making clean energy accessible to every household and business across Maharashtra.",
   },
   {
     name: "Adarsha Tandel",
     role: "Co-Founder",
     initial: "A",
+    image: "/Adarsha.jpg",
     bio: "Adarsha oversees operations and client relationships, ensuring every installation meets the highest standards of quality, safety, and long-term performance.",
   },
 ];
@@ -96,10 +99,14 @@ export default function AboutUs() {
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                 className="glass-card rounded-2xl p-6 flex gap-5 items-start"
               >
-                <div className="w-14 h-14 rounded-2xl bg-solar-gold/15 border border-solar-gold/25 flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl font-extrabold text-solar-gold-dark dark:text-solar-gold">
-                    {founder.initial}
-                  </span>
+                <div className="w-14 h-14 rounded-2xl border border-solar-gold/25 flex-shrink-0 overflow-hidden">
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    width={56}
+                    height={56}
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 <div>
                   <div className="font-extrabold text-slate-900 dark:text-white text-base">
@@ -117,9 +124,9 @@ export default function AboutUs() {
 
             <div className="glass-card rounded-2xl p-5 flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-solar-gold/15 border border-solar-gold/25 flex items-center justify-center flex-shrink-0">
-                <svg className="w-5 h-5 text-solar-gold-dark dark:text-solar-gold" fill="none" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor" />
-                  <path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8L2 12c0-5.52 4.48-10 10-10 2.76 0 5.26 1.12 7.07 2.93L17.65 6.35z" fill="currentColor" opacity="0.4"/>
+                <svg className="w-5 h-5 text-solar-gold-dark dark:text-solar-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" fill="currentColor" stroke="none" />
                 </svg>
               </div>
               <div>
