@@ -8,14 +8,14 @@ const founders = [
     name: "Bhardwaj Tandel",
     role: "Founder & Director",
     initial: "B",
-    image: "/Bharadwaj.jpg",
+    image: "/Bharadwaj.jpeg",
     bio: "Driving the vision behind Solaaris, Bhardwaj brings deep expertise in solar energy systems and a passion for making clean energy accessible to every household and business across Maharashtra.",
   },
   {
     name: "Adarsha Tandel",
     role: "Co-Founder",
     initial: "A",
-    image: "/Adarsha.jpg",
+    image: "/Adarsha.jpeg",
     bio: "Adarsha oversees operations and client relationships, ensuring every installation meets the highest standards of quality, safety, and long-term performance.",
   },
 ];
