@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     name: "Ramesh Patil",
-    location: "Pune, Maharashtra",
+    location: "Palghar, Maharashtra",
     type: "Residential",
     rating: 5,
     text: "Solaaris made the entire process incredibly smooth. From the first consultation to the final installation, the team was professional and transparent. My electricity bill dropped from ₹4,500 to under ₹400!",
@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     name: "Sunita Deshmukh",
-    location: "Nashik, Maharashtra",
+    location: "Wada, Maharashtra",
     type: "Commercial",
     rating: 5,
     text: "We had a 15kW system installed for our manufacturing unit. The ROI calculation they provided was spot-on. The subsidy documentation was handled entirely by their team — zero headaches for us.",
@@ -21,11 +21,19 @@ const testimonials = [
   },
   {
     name: "Anil Shinde",
-    location: "Ahmednagar, Maharashtra",
+    location: "Dahanu, Maharashtra",
     type: "Agricultural",
     rating: 5,
     text: "Running our water pump on solar has been a game changer. No more diesel costs, no more power cut issues. Bhardwaj bhai's team explained everything clearly. Highly recommended!",
     system: "5kW Off-Grid System",
+  },
+  {
+    name: "Vikram Patkar",
+    location: "Boisar, Maharashtra",
+    type: "Residential",
+    rating: 5,
+    text: "I was sceptical at first, but Solaaris made the whole process stress-free. The subsidy paperwork was handled entirely by them and the installation was done neatly within the promised timeline. My bills have dropped drastically!",
+    system: "3kW On-Grid System",
   },
 ];
 
@@ -55,7 +63,7 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
